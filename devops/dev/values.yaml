@@ -61,16 +61,13 @@ lib-helm-app:
   # runAsNonRoot: true
   # runAsUser: 1000
 
+  service_type: "ClusterIP"
   service:
-    type: LoadBalancer
-    port: 80
-    targetPort: 8080
-    protocol: "TCP"
-    name: "http"
-    nodePort: 31080
-  ingress:
-    enabled: false
-  # insecureEdgeTerminationPolicy: "Redirect"
+    - port: 8081
+      targetPort: 8081
+      protocol: "TCP"
+      name: "http"
+
   resources:
     limits:
       cpu: 1
