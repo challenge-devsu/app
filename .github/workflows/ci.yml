@@ -10,6 +10,5 @@ jobs:
   #Organization env variable name ORG
     #uses: ${{ env.org.ORG }}/devops/.github/workflows/java.yml@main
     uses: challenge-devsu/devops/.github/workflows/java.yml@main
-    #uses: challenge-devsu/devops/pipeline/java.yml@main
     with:
       holis: "holis"
