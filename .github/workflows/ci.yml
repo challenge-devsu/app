@@ -8,7 +8,7 @@ on:
 jobs:
   pipelineJava17:
     #- uses: ${{ secrets.ORG }}/devops/.github/workflows/java.yml@main
-    uses: ${{ vars.ORG }}/devops/.github/workflows/java.yml@main
+    uses: challenge-devsu/devops/.github/workflows/java.yml@main
     # with:
     #   holis: "holis"
-
+    
