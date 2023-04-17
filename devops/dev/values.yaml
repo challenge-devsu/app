@@ -1,13 +1,13 @@
 # Default values for my-app.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-helm-static_application:
+lib-helm-app:
   nameOverride: "api_aplication"
   fullnameOverride: "api-application"
   #proyecto: filenet-back-dev
   replicaCount: 1
   image:
-    repository: ghcr.io/test-devops-matiasgonzalocalvo/test-app
+    repository: ghcr.io/challenge-devsu/app
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
     tag: "0.0.1"
