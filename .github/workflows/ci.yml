@@ -1,0 +1,12 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  pipelineJava17:
+    uses: ${{ env.ORG }}/devops/pipeline/java.yml@main
+    with:
+      holis: "holis"
