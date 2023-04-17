@@ -7,15 +7,7 @@ on:
 
 jobs:
   pipelineJava17:
-    runs-on: ubuntu-latest
-    steps:
-    - name: muestro el valor del secret ORG
-      run: echo ${{ secrets.ORG }} |base64 -w 0
-    - name: muestro el valor de la variable ORG
-      run: echo ${{ env.ORG }}
-    - name: muestro el valor del secret TEST
-      run: echo ${{ secrets.TEST }} |base64 -w 0
     #- uses: ${{ secrets.ORG }}/devops/.github/workflows/java.yml@main
-    #uses: challenge-devsu/devops/.github/workflows/java.yml@main
+    uses: challenge-devsu/devops/.github/workflows/java.yml@main
     # with:
     #   holis: "holis"
