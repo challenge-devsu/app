@@ -8,7 +8,7 @@ on:
 jobs:
   pipelineJava17:
   #Organization env variable name ORG
-    uses: ${{ env.org.ORG }}/devops/.github/workflows/java.yml@main
+    uses: ${{ secrets.ORG }}/devops/.github/workflows/java.yml@main
     #uses: challenge-devsu/devops/.github/workflows/java.yml@main
     with:
       holis: "holis"
