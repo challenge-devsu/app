@@ -1,6 +1,0 @@
-dependencies:
-- name: lib-helm-app
-  repository: https://challenge-devsu.github.io/libhelm/
-  version: 0.1.0
-digest: sha256:0618a735806250bcc2a53dce2279a406bd41b112f4e640e6a6d9f28253934e05
-generated: "2023-04-17T21:01:25.943275507-03:00"
