@@ -20,7 +20,7 @@ lib-helm-app:
     router: "dev"
     environment: "dev"
     cluster: "dev"
-    deploytime: "env(date)"
+    deploytime: "1681777619"
   deploymentlabels:
     deploylabel: "deploylabel"
   livenessProbe:
