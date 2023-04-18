@@ -7,4 +7,4 @@ appVersion: "1.16.0"
 dependencies:
   - name: lib-helm-app
     version: 0.1.0
-    repository: "https://challenge-devsu.github.io/helms-libs/"
+    repository: "https://challenge-devsu.github.io/libhelm/"
