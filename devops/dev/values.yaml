@@ -13,7 +13,7 @@ lib-helm-app:
     tag: "0.0.1-SNAPSHOT"
     port:
       name: "http"
-      containerPort: "8080"
+      containerPort: "8000"
       protocol: "TCP"
   commonlabels:
     application_name: app1
@@ -40,7 +40,7 @@ lib-helm-app:
     initialDelaySeconds: 20
     httpGet:
       path: /api/users
-      port: 8080
+      port: 8000
       #imagePullSecrets: []
   serviceAccount:
     # Specifies whether a service account should be created
@@ -64,8 +64,8 @@ lib-helm-app:
 
   service_type: "ClusterIP"
   service:
-    - port: 8081
-      targetPort: 8081
+    - port: 8000
+      targetPort: 8000
       protocol: "TCP"
       name: "http"
   resources:
@@ -97,7 +97,7 @@ lib-helm-app:
     enabled: true
     hosts:
       - weight: 100
-        targetPort: 8080
+        targetPort: 8000
         wildcardPolicy: "None"
         tls:
           termination: "edge"
