@@ -93,3 +93,14 @@ lib-helm-app:
       port: 8081-tcp
       scheme: http
       path: /management/metrics
+
+  route:
+    enabled: true
+    hosts:
+      - weight: 100
+        targetPort: 8080
+        wildcardPolicy: "None"
+        tls:
+          termination: "edge"
+          insecureEdgeTerminationPolicy: "Redirect"
+
