@@ -10,7 +10,7 @@ lib-helm-app:
     repository: ghcr.io/challenge-devsu/app
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "0.0.1"
+    tag: "0.0.1-SNAPSHOT"
     port:
       name: "http"
       containerPort: "8080"
@@ -20,6 +20,7 @@ lib-helm-app:
     router: "dev"
     environment: "dev"
     cluster: "dev"
+    deploytime: 1681777079
   deploymentlabels:
     deploylabel: "deploylabel"
   livenessProbe:
@@ -67,7 +68,6 @@ lib-helm-app:
       targetPort: 8081
       protocol: "TCP"
       name: "http"
-
   resources:
     limits:
       cpu: 1
@@ -93,7 +93,6 @@ lib-helm-app:
       port: 8081-tcp
       scheme: http
       path: /management/metrics
-
   route:
     enabled: true
     hosts:
@@ -103,4 +102,3 @@ lib-helm-app:
         tls:
           termination: "edge"
           insecureEdgeTerminationPolicy: "Redirect"
-
