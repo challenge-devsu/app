@@ -5,7 +5,7 @@ lib-helm-app:
   nameOverride: "api_aplication"
   fullnameOverride: "api-application"
   #proyecto: filenet-back-dev
-  replicaCount: 1
+  replicaCount: 2
   image:
     repository: ghcr.io/challenge-devsu/app
     pullPolicy: Always
@@ -76,7 +76,7 @@ lib-helm-app:
       cpu: 10m
       memory: 128Mi
   autoscaling:
-    enabled: true
+    enabled: false
     minReplicas: 1
     maxReplicas: 2
     targetCPUUtilizationPercentage: 80
