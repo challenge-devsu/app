@@ -1,27 +1,26 @@
 # Default values for my-app.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-#
 lib-helm-app:
   nameOverride: "api_aplication"
   fullnameOverride: "api-application"
   #proyecto: filenet-back-dev
-  replicaCount: 1
+  replicaCount: 2
   image:
     repository: ghcr.io/challenge-devsu/app
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "0.0.1-RELEASE"
+    tag: "0.0.1-SNAPSHOT"
     port:
       name: "http"
-      containerPort: "8080"
+      containerPort: "8000"
       protocol: "TCP"
   commonlabels:
     application_name: app1
     router: "dev"
     environment: "dev"
     cluster: "dev"
-    deploytime: 16817374602
+    deploytime: "1681780266"
   deploymentlabels:
     deploylabel: "deploylabel"
   livenessProbe:
@@ -29,19 +28,19 @@ lib-helm-app:
     successThreshold: 1
     timeoutSeconds: 10
     failureThreshold: 10
-    initialDelaySeconds: 60
+    initialDelaySeconds: 20
     httpGet:
-      path: /
-      port: 8080
+      path: /api/users
+      port: 8000
   readinessProbe:
     periodSeconds: 10
     successThreshold: 1
     timeoutSeconds: 10
     failureThreshold: 3
-    initialDelaySeconds: 60
+    initialDelaySeconds: 20
     httpGet:
-      path: /
-      port: 8080
+      path: /api/users
+      port: 8000
       #imagePullSecrets: []
   serviceAccount:
     # Specifies whether a service account should be created
@@ -63,16 +62,12 @@ lib-helm-app:
   # runAsNonRoot: true
   # runAsUser: 1000
 
+  service_type: "ClusterIP"
   service:
-    type: LoadBalancer
-    port: 80
-    targetPort: 8080
-    protocol: "TCP"
-    name: "http"
-    nodePort: 31080
-  ingress:
-    enabled: false
-  # insecureEdgeTerminationPolicy: "Redirect"
+    - port: 8000
+      targetPort: 8000
+      protocol: "TCP"
+      name: "http"
   resources:
     limits:
       cpu: 1
@@ -81,7 +76,7 @@ lib-helm-app:
       cpu: 10m
       memory: 128Mi
   autoscaling:
-    enabled: true
+    enabled: false
     minReplicas: 1
     maxReplicas: 2
     targetCPUUtilizationPercentage: 80
@@ -98,3 +93,12 @@ lib-helm-app:
       port: 8081-tcp
       scheme: http
       path: /management/metrics
+  route:
+    enabled: true
+    hosts:
+      - weight: 100
+        targetPort: 8000
+        wildcardPolicy: "None"
+        tls:
+          termination: "edge"
+          insecureEdgeTerminationPolicy: "Redirect"
