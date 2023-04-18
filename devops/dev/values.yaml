@@ -28,18 +28,18 @@ lib-helm-app:
     successThreshold: 1
     timeoutSeconds: 10
     failureThreshold: 10
-    initialDelaySeconds: 60
+    initialDelaySeconds: 20
     httpGet:
-      path: /api/user
+      path: /api/users
       port: 8000
   readinessProbe:
     periodSeconds: 10
     successThreshold: 1
     timeoutSeconds: 10
     failureThreshold: 3
-    initialDelaySeconds: 60
+    initialDelaySeconds: 20
     httpGet:
-      path: /api/user
+      path: /api/users
       port: 8080
       #imagePullSecrets: []
   serviceAccount:
